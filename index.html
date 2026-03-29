@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宝石消除</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- 开始界面 -->
+        <div id="start-screen" class="screen active">
+            <h1>宝石消除</h1>
+            <div class="start-menu">
+                <div class="difficulty-selection">
+                    <label>难度</label>
+                    <select id="start-difficulty-select">
+                        <option value="easy">简单</option>
+                        <option value="normal" selected>普通</option>
+                        <option value="hard">困难</option>
+                    </select>
+                </div>
+                <button id="start-button">开始游戏</button>
+                <button id="settings-button">设置</button>
+                <button id="help-button">帮助</button>
+            </div>
+        </div>
+
+        <!-- 游戏界面 -->
+        <div id="game-screen" class="screen">
+            <div class="game-hud">
+                <div class="score">分数: <span id="score-count">0</span></div>
+                <div class="target-score">目标: <span id="target-score-count">1000</span></div>
+                <div class="moves">步数: <span id="moves-count">30</span></div>
+                <div class="level">关卡: <span id="level-count">1</span></div>
+                <div class="combo">连击: <span id="combo-count">0x</span></div>
+            </div>
+            <div id="game-board"></div>
+            <div class="game-controls">
+                <button id="pause-button" class="control-button">暂停</button>
+                <button id="restart-button" class="control-button">重新开始</button>
+            </div>
+        </div>
+
+        <!-- 结束界面 -->
+        <div id="end-screen" class="screen">
+            <h1>游戏结束</h1>
+            <div class="final-stats">
+                <div>最终分数: <span id="final-score">0</span></div>
+                <div>关卡: <span id="final-level">1</span></div>
+                <div>剩余步数: <span id="final-moves">0</span></div>
+            </div>
+            <button id="play-again-button">再玩一次</button>
+            <button id="exit-button">返回主菜单</button>
+        </div>
+
+        <!-- 暂停菜单 -->
+        <div id="pause-menu" class="screen">
+            <h2>游戏暂停</h2>
+            <div class="pause-options">
+                <button id="resume-button">继续游戏</button>
+                <button id="pause-restart-button">重新开始</button>
+                <button id="pause-exit-button">返回主菜单</button>
+            </div>
+        </div>
+
+        <!-- 设置菜单 -->
+        <div id="settings-menu" class="screen">
+            <h2>设置</h2>
+            <div class="settings-options">
+                <div class="setting-item">
+                    <label>音量</label>
+                    <input type="range" min="0" max="100" value="50" id="volume-slider">
+                </div>
+                <div class="setting-item">
+                    <label>难度</label>
+                    <select id="difficulty-select">
+                        <option value="easy">简单</option>
+                        <option value="normal" selected>普通</option>
+                        <option value="hard">困难</option>
+                    </select>
+                </div>
+                <button id="settings-back-button">返回</button>
+            </div>
+        </div>
+
+        <!-- 帮助菜单 -->
+        <div id="help-menu" class="screen">
+            <h2>游戏帮助</h2>
+            <div class="help-content">
+                <p>1. 点击并交换相邻的宝石，形成3个或更多相同宝石的连线</p>
+                <p>2. 消除宝石可以获得分数</p>
+                <p>3. 每消除一组宝石会增加额外的步数</p>
+                <p>4. 达到目标分数即可进入下一关</p>
+                <p>5. 步数用完游戏结束</p>
+            </div>
+            <button id="help-back-button">返回</button>
+        </div>
+
+        <!-- 胜利界面 -->
+        <div id="win-screen" class="screen">
+            <h1>恭喜过关！</h1>
+            <div class="win-stats">
+                <div>关卡: <span id="win-level">1</span></div>
+                <div>得分: <span id="win-score">0</span></div>
+                <div>剩余步数: <span id="win-moves">0</span></div>
+            </div>
+            <button id="next-level-button">下一关</button>
+            <button id="win-exit-button">返回主菜单</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
